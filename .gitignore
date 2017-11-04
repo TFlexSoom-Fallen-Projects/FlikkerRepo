@@ -32,12 +32,12 @@
 *.app
 
 # Unreal Assets too large for repo
-/Flikker/StarterContent/**
-/Intermediate/**/*
-/Saved/**/*
-/Binaries/**/*
-/DerivedDataCache/**/*
-/Flikker.VC.db
+/Flikker/Content/StarterContent/**
+Flikker/Intermediate/**/*
+Flikker/Saved/**/*
+Flikker/Binaries/**/*
+Flikker/DerivedDataCache/**/*
+Flikker/Flikker.VC.db
 *.pdb
-/.vs/**/*
-/Build/**/*
+Flikker/.vs/**/*
+Flikker/Build/**/*
