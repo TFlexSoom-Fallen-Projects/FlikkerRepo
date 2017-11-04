@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+# Unreal Assets too large for repo
+/Flikker/StarterContent/**
+/Intermediate/**/*
+/Saved/**/*
+/Binaries/**/*
+/DerivedDataCache/**/*
+/Flikker.VC.db
+*.pdb
+/.vs/**/*
+/Build/**/*
