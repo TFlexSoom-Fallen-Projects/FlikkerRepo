@@ -9,6 +9,9 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 
+//Forward Declarations
+TSubclassOf<class Fire> CampFire;
+
 //////////////////////////////////////////////////////////////////////////
 // AFlikkerCharacter
 
@@ -74,6 +77,10 @@ void AFlikkerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AFlikkerCharacter::OnResetVR);
+
+	//Interaction Bindings
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFlikkerCharacter::InteractOn);
+	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AFlikkerCharacter::InteractOff);
 }
 
 
@@ -130,5 +137,20 @@ void AFlikkerCharacter::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+	}
+}
+
+void AFlikkerCharacter::InteractOn() {
+	bInteract = true;
+}
+
+void AFlikkerCharacter::InteractOff() {
+	bInteract = false;
+}
+
+void AFlikkerCharacter::NotifyActorBeginOverlap(AActor * OtherActor) {
+	auto campFire = Cast<Fire>(OtherActor);
+	if (campFire) {
+		//Read Property of color aand add it to this actor.
 	}
 }

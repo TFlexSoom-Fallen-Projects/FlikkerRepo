@@ -29,6 +29,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	/** Interact Boolean (Why am I writing this a third time*/
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Does Player Want To Interact?")
+		bool bInteract;
+
 protected:
 
 	/** Resets HMD orientation in VR. */
@@ -62,7 +66,19 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
+    
+	//Interact is turned On
+	void InteractOn();
 
+	//Interact is turned Off
+	void InteractOff();
+
+
+	//Overlapping Override
+	UFUNCTION(BlueprintImplementableEvent)
+		virtual void NotifyActorBeginOverlap(AActor*) override;
+
+	
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
