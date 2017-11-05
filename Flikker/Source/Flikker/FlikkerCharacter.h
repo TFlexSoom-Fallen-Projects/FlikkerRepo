@@ -58,11 +58,20 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
+	/** Will Interact with something that is interactable if he is currently hitting it. */
+	void InteractOn();
+
+	/** Won't Interact with something that is interactable */
+	void InteractOff();
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
+	//Variables:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Does Player Want to Interact?")
+		bool bInteraction;
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
