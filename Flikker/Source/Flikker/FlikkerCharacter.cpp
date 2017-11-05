@@ -74,10 +74,6 @@ void AFlikkerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AFlikkerCharacter::OnResetVR);
-
-	// Interact Functionality
-	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFlikkerCharacter::InteractOn);
-	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AFlikkerCharacter::InteractOff);
 }
 
 
@@ -135,14 +131,4 @@ void AFlikkerCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
-}
-
-void AFlikkerCharacter::InteractOn()
-{
-	AFlikkerCharacter::bInteraction = true;
-}
-
-void AFlikkerCharacter::InteractOff()
-{
-	AFlikkerCharacter::bInteraction = false;
 }
