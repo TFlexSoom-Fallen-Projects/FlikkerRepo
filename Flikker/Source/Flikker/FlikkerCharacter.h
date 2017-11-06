@@ -33,6 +33,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Does Player Want To Interact?")
 		bool bInteract;
 
+	/** Color Variable That represents the color the player should glow/see */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Does Player Want To Interact?")
+		FColor color;
+
 protected:
 
 	/** Resets HMD orientation in VR. */
@@ -75,8 +79,8 @@ protected:
 
 
 	//Overlapping Override
-	UFUNCTION(BlueprintImplementableEvent)
-		virtual void NotifyActorBeginOverlap(AActor*) override;
+	UFUNCTION(BlueprintNativeEvent)
+		void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 	
 public:

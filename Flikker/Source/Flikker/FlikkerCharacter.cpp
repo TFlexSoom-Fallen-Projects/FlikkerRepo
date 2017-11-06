@@ -148,9 +148,9 @@ void AFlikkerCharacter::InteractOff() {
 	bInteract = false;
 }
 
-void AFlikkerCharacter::NotifyActorBeginOverlap(AActor * OtherActor) {
-	auto campFire = Cast<Fire>(OtherActor);
+void AFlikkerCharacter::NotifyActorBeginOverlap_Implementation(AActor * OtherActor) {
+	/*auto campFire = Cast<Fire>(OtherActor);
 	if (campFire) {
 		//Read Property of color aand add it to this actor.
-	}
+	}*/
 }
