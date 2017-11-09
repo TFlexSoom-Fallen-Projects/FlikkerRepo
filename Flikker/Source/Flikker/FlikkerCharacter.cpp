@@ -9,8 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 
-//Forward Declarations
-TSubclassOf<class Fire> CampFire;
+
 
 //////////////////////////////////////////////////////////////////////////
 // AFlikkerCharacter
